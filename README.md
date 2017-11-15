@@ -136,6 +136,13 @@ Then, we'll open up our `package.json` and replace the `jest` field with the fol
 
 This will configure Jest to run `.ts` and `.tsx` files with `ts-jest`.
 
+Then (ici, pas sûr de tout ce que j'ai fais, mais ca a fini par marcher avec ces 3 commandes ^^) : 
+```sh
+npm install -g jest jest-cli
+npm install jest jest-cli
+npm install
+```
+
 ### Installing 3rd party type declarations
 
 To get the best experience in TypeScript, we want the type-checker to understand the shape and API of our dependencies.
@@ -156,12 +163,13 @@ To read more about [getting `.d.ts` files, you can read up more here about the p
 ### Moving files over to TypeScript
 
 Now we'll move our `.js` files to `.tsx` files.
-Let's take `src/index.android.js` or `src/index.ios.js` and rename them both to `src/index.android.tsx` and `src/index.ios.tsx` respectively.
+Let's take `src/index.js` and rename it to `src/index.tsx`, then rename `src/App.js` to `src/App.tsx`.
 
 We'll immediately get a few errors, but they're easy enough to fix.
 The changes will include:
 
-- Replace `import React, {Component} from 'react';` with `import * as React from 'react';`
+In App.tsx : 
+- Replace `import React, {Component} from 'react';` with `import * as React from 'react';` 
 - Replace old references to `Component` to `React.Component<object, object>`.
 
 That should fix things right up.
